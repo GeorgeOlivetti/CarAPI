@@ -19,6 +19,7 @@ gem 'execjs'
 gem 'therubyracer'
 
 gem 'vinbot'
+gem 'sqlite3'
 
 gem 'faker'
 

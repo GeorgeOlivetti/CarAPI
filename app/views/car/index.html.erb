@@ -1,3 +1,15 @@
 <h1>Car Database</h1>
 
 <%= button_to 'Print All', printAll_path, method: :get %>
+
+<%= simple_format(
+
+"Prints all vehicles, parameters can be passed in to narrow down the search.
+\n
+ex. /printAll?make=Toyota
+The above query will only list 'Toyota' vehicles
+\n       
+ex. /printAll?make=Toyota&color=White
+The above query will only list vehicles that are BOTH 'Toyota' and 'White'"
+
+) %>

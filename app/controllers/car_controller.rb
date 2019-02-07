@@ -41,6 +41,30 @@ class CarController < ApplicationController
 
     end
     
+    def showCar
+        @car = Car.where(id: params[:id])
+        @car = @car.as_json
+    end
+    
+    def addRandomCar
+        @random_car = Vinbot::Vehicle.new
+        @car = Car.new
+        @car.vin = @random_car.vin
+        @car.make = @random_car.make
+        @car.model = @random_car.model
+        @car.year = @random_car.year
+        @car.color = @random_car.exterior_colors[0]
+        @car.ownerFirstName = Faker::Name.first_name
+        @car.ownerLastName = Faker::Name.last_name
+        @car.save
+       # @car_format = @car.as_json
+
+    respond_to do |format|
+        format.html { redirect_to showCar_path(:id => @car.id)}
+        format.json { head :no_content }
+    end
+    end
+    
     def create
         
         # createCar?vin=1GNDT13Z7M2303951&make=Ford&model=Explorer&year=1997&color=Green&ownerFirstName=Jeff&ownerLastName=Adams
@@ -54,15 +78,24 @@ class CarController < ApplicationController
     @car.ownerFirstName = params[:ownerFirstName]
     @car.ownerLastName = params[:ownerLastName]
     @car.save
-   # @car = @car.as_json
+   #@car = @car.as_json
 
-    respond_to do |format|
-        format.html { redirect_to printAll_path}
+   respond_to do |format|
+        format.html { redirect_to showCar_path(:id => @car.id)}
         format.json { head :no_content }
     end
 
         
     end
+    
+    def setName
+        @car = Car.find(params[:id])
+        @car.update_attributes!(:ownerFirstName => params[:ownerFirstName])
+        @car.update_attributes!(:ownerLastName => params[:ownerLastName])
+        
+        @car = @car.as_json
+    end
+    
     
     def delete
         

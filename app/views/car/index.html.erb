@@ -32,8 +32,12 @@ The following query is an example query that can be used as a format:
 
 /createCar?vin=1GNDT13Z7M2303951&make=Ford&model=Explorer&year=1997&color=Green&ownerFirstName=Jeff&ownerLastName=Adams
 
-Upon success, the user will be redirected to a json object of all current cars."
+Upon success, the user will be redirected to a json object of all current cars.
+
+As an alternative, the button below will also enter a random car. It can also be used via /addRandomCar as an HTTP request."
 ) %>
+
+<%= button_to 'Add Random Car', addRandomCar_path, method: :get %>
 
 <h1>Deleting Entries</h1>
 

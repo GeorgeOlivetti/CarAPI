@@ -1,0 +1,18 @@
+<%= form_for(@api) do |f| %>
+  
+    <div class="field">
+    <%= f.label "First Name" %>
+    <%= f.text_field :firstName, :placeholder=> "First Name" %>
+  </div>
+  
+      <div class="field">
+    <%= f.label "Last Name" %>
+    <%= f.text_field :lastName, :placeholder=> "Last Name" %>
+  </div>
+  
+
+  <!--<div class="actions btn btn-primary">-->
+    <!--<%= f.submit %>-->
+  <!--</div>-->
+    <button type="submit" class="btn btn-primary">Generate Token</button>
+<% end %>

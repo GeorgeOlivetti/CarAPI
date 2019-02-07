@@ -18,9 +18,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'execjs'
 gem 'therubyracer'
 
-gem 'vinbot'
-gem 'sqlite3'
-
 gem 'faker'
 
 # Use CoffeeScript for .coffee assets and views

@@ -47,13 +47,12 @@ class CarController < ApplicationController
     end
     
     def addRandomCar
-        @random_car = Vinbot::Vehicle.new
         @car = Car.new
-        @car.vin = @random_car.vin
-        @car.make = @random_car.make
-        @car.model = @random_car.model
-        @car.year = @random_car.year
-        @car.color = @random_car.exterior_colors[0]
+        @car.vin = Faker::Vehicle.vin
+        @car.make = Faker::Vehicle.make
+        @car.model = Faker::Vehicle.model
+        @car.year = Faker::Vehicle.year
+        @car.color = Faker::Vehicle.color
         @car.ownerFirstName = Faker::Name.first_name
         @car.ownerLastName = Faker::Name.last_name
         @car.save

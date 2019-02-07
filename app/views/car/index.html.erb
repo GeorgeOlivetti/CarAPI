@@ -13,3 +13,37 @@ ex. /printAll?make=Toyota&color=White
 The above query will only list vehicles that are BOTH 'Toyota' and 'White'"
 
 ) %>
+
+<h1>Creating Entries</h1>
+
+<%= simple_format(
+
+"Cars can be added to the database using the API. Every car is required to have:
+\n
+VIN (17 characters, mix of capital letters and numbers)
+Make
+Model
+Year
+Color
+Owner First Name
+Owner Last Name
+
+The following query is an example query that can be used as a format:
+
+/createCar?vin=1GNDT13Z7M2303951&make=Ford&model=Explorer&year=1997&color=Green&ownerFirstName=Jeff&ownerLastName=Adams
+
+Upon success, the user will be redirected to a json object of all current cars."
+) %>
+
+<h1>Deleting Entries</h1>
+
+<%= simple_format(
+
+"Any entry can be deleted using the API. The only required parameter is the ID (use printAll to look up the ID of the vehicles).
+
+The following query will delete a vehicle with ID of '10':
+
+/deleteCar?id=10
+
+Upon success, the user will be redirected to a json object of all current cars."
+) %>

@@ -5,4 +5,8 @@ root to: 'car#index'
 
 get "printAll", to: "car#printAll", as: 'printAll'
 
+get "createCar", to: "car#create", as: 'createCar'
+
+get "deleteCar", to: "car#delete", as: 'deleteCar'
+
 end

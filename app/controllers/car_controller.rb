@@ -42,11 +42,14 @@ class CarController < ApplicationController
     end
     
     def showCar
+        
         @car = Car.where(id: params[:id])
         @car = @car.as_json
+        
     end
     
     def addRandomCar
+        
         @car = Car.new
         @car.vin = Faker::Vehicle.vin
         @car.make = Faker::Vehicle.make
@@ -87,12 +90,41 @@ class CarController < ApplicationController
         
     end
     
-    def setName
-        @car = Car.find(params[:id])
-        @car.update_attributes!(:ownerFirstName => params[:ownerFirstName])
-        @car.update_attributes!(:ownerLastName => params[:ownerLastName])
+    def editCar
         
-        @car = @car.as_json
+        @car = Car.find(params[:id])
+        
+        if(params[:vin])
+            @car.update_attributes!(:vin => params[:vin])
+        end
+        if(params[:make])
+            @car.update_attributes!(:make =>  params[:make])
+        end
+        if(params[:model])
+            @car.update_attributes!(:model => params[:model])
+        end
+        if(params[:year])
+            @car.update_attributes!(:year => params[:year])
+        end
+        if(params[:color])
+            @car.update_attributes!(:color => params[:color])
+        end
+        if(params[:ownerFirstName])
+            @car.update_attributes!(:ownerFirstName => params[:ownerFirstName])
+        end
+        if(params[:ownerLastName])
+           @car.update_attributes!(:ownerLastName => params[:ownerLastName])
+        end
+        
+        #@car = @car.as_json
+        
+    respond_to do |format|
+
+     format.html { redirect_to showCar_path(:id => @car.id)}
+     format.json { head :no_content }
+
+    end
+        
     end
     
     

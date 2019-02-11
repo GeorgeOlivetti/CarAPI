@@ -9,7 +9,7 @@ get "createCar", to: "car#create", as: 'createCar'
 
 get "deleteCar", to: "car#delete", as: 'deleteCar'
 
-get "setName", to: "car#setName", as: "setName"
+get "editCar", to: "car#editCar", as: "editCar"
 
 get "addRandomCar", to: "car#addRandomCar", as: "addRandomCar"
 

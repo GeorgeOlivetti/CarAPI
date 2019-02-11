@@ -52,8 +52,19 @@ class CarController < ApplicationController
         
         @car = Car.new
         @car.vin = Faker::Vehicle.vin
-        @car.make = Faker::Vehicle.make
-        @car.model = Faker::Vehicle.model
+        
+        @carMM = Faker::Vehicle.make_and_model
+        @mmArray = @carMM.split(/\W+/)
+        
+        #properly pair up makes with models
+        @car.make = @mmArray[0]
+        @car.model = @mmArray[1]
+        
+        #Faker mispells "Camaro"
+        if (@car.model == "Camero")
+            @car.model = "Camaro"
+        end
+        
         @car.year = Faker::Vehicle.year
         @car.color = Faker::Vehicle.color
         @car.ownerFirstName = Faker::Name.first_name

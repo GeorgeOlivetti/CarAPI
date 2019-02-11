@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 cars_list = [
-    ["JTDKB20U177686018", "Toyota", "RAV4", 2014, "White", "George", "Olivetti"],
-    ["2G1WL52K8X9224624", "Toyota", "Camry", 2012, "Black", "George", "Olivetti"],
+    ["JTDKB20U177686018", "Toyota", "RAV4", 2014, "White", "Adam", "West"],
+    ["2G1WL52K8X9224624", "Toyota", "Camry", 2012, "Black", "Adam", "West"],
     ["1GTDM19X22B542140", "Cheverlot", "Trailblazer", 2003, "Blue", "Matthew", "West"],
     ["1FMDU63W62UC69541", "Ford", "F-150", 2010, "Black", "Michael", "Scott"],
     ["JYARN20E98A095417", "Honda", "Civic", 2012, "Silver", "Andrew", "Johnson"],

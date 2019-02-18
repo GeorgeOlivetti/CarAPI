@@ -15,4 +15,16 @@ get "addRandomCar", to: "car#addRandomCar", as: "addRandomCar"
 
 get "showCar", to: "car#showCar", as: "showCar"
 
+get "token/new", to: "token#new", as: "tokens"
+
+post "token/new", to: "token#show", as: "tokenShow"
+
+get "token/list", to: "token#list", as: "list"
+
+get "error", to: "car#error", as: "error"
+
+get "logs", to: "log#show", as: "showLogs"
+
+
+
 end

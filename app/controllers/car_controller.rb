@@ -1,6 +1,44 @@
 class CarController < ApplicationController
     
+    @error = ""
+    
+    before_action :checkToken, only: [:printAll, :showCar, :addRandomCar, :create, :editCar, :delete]
+    before_action :createLog, only: [:printAll, :showCar, :addRandomCar, :create, :editCar, :delete] 
+    
     def index
+    end
+    
+    def error
+        @message = "Token not valid"
+        @message = @message.as_json
+    end
+    
+    def checkToken
+        #if token is not valid, redirect
+        
+        @tokens = Token.all
+        if (@tokens.where(token: params[:token]).exists? == false)
+            redirect_to error_path
+        end
+    end
+    
+    def createLog
+        @log = Log.new
+        @log.action = action_name
+        @log.token = params[:token]
+        
+        #extract all parameters
+        
+        @log.parameters = { "vin" => params[:vin],
+        "make" => params[:make],
+        "model" => params[:model],
+        "year" => params[:year],
+        "color" => params[:color],
+        "ownerFirstName" => params[:ownerFirstName],
+        "ownerLastName" => params[:ownerLastName]
+        }
+        
+        @log.save
     end
     
     def printAll
@@ -152,5 +190,9 @@ class CarController < ApplicationController
 
     end
     
+        
+    end
+    
+    def helper
     end
 end

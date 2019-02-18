@@ -9,7 +9,7 @@
 cars_list = [
     ["JTDKB20U177686018", "Toyota", "RAV4", 2014, "White", "Adam", "West"],
     ["2G1WL52K8X9224624", "Toyota", "Camry", 2012, "Black", "Adam", "West"],
-    ["1GTDM19X22B542140", "Cheverlot", "Trailblazer", 2003, "Blue", "Matthew", "West"],
+    ["1GTDM19X22B542140", "Chevrolet", "Trailblazer", 2003, "Blue", "Matthew", "West"],
     ["1FMDU63W62UC69541", "Ford", "F-150", 2010, "Black", "Michael", "Scott"],
     ["JYARN20E98A095417", "Honda", "Civic", 2012, "Silver", "Andrew", "Johnson"],
     ["1FTFF26E3BKA36053", "BMW", "i8", 2019, "White", "John", "Smith"]

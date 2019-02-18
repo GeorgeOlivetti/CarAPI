@@ -1,5 +1,7 @@
 <h1>Car Database</h1>
 
+<%= button_to 'Get Token', tokens_path, method: :get %>
+
 <%= simple_format(
 
 "This application is an example REST API. It contains a backend PostgreSQL database, with one table of cars.
@@ -19,77 +21,65 @@ Listed below are some example CRUD operations that can be used. All methods belo
 
 ) %>
 
-<h1>Creating Entries</h1>
+<font size="3" color="red">Red</font> = mandatory parameter
+<br />
+<font size="3" color="black">Black</font> = optional parameter
+<br />
+<br />
 
-<%= simple_format(
+<font size="3" color="black">** All actions require an API token in the parameters, click the button above to get a token **</font>
 
-"Cars can be added to the database using the API. Every car is required to have:
-\n
-VIN (17 characters, mix of capital letters and numbers)
-Make
-Model
-Year
-Color
-Owner First Name
-Owner Last Name
+<br />
+<br />
 
-The following query is an example query that can be used as a format:
-
-/createCar?vin=1GNDT13Z7M2303951&make=Ford&model=Explorer&year=1997&color=Green&ownerFirstName=Jeff&ownerLastName=Adams
-
-Upon success, the user will be redirected to a json object of all current cars.
-
-As an alternative, the button below will also enter a random car. It can also be used via /addRandomCar as an HTTP request."
-) %>
-
-<%= button_to 'Add Random Car', addRandomCar_path, method: :get %>
-
-<h1>Reading Entries</h1>
-
-<%= button_to 'Print All', printAll_path, method: :get %>
-
-<%= simple_format(
-
-"Prints all vehicles, parameters can be passed in to narrow down the search.
-\n
-ex. /printAll?make=Toyota
-The above query will only list 'Toyota' vehicles
-\n       
-ex. /printAll?make=Toyota&color=White
-The above query will only list vehicles that are BOTH 'Toyota' and 'White'
-
-You can also pull up the info of an individual car by using the /showCar method. The user must pass in the id of the vehicle.
-
-Example:
-
-/showCar?id=10
-
-The above query will pull up the data for a car with the ID of '10'"
-) %>
-
-
-<h1>Updating Entries</h1>
-
-<%= simple_format("
-You can also edit vehicles individually. This is done using the /editCar method. The user must pass in the 'id' argument. After that, any attribute can be modified.
-
-Example:
-
-/editCar?id=1&ownerFirstName=Jim
-
-This query will find the car with the ID of '1', can change the first name of the owner to 'Jim'"
-
-) %>
-
-<h1>Deleting Entries</h1>
-
-<%= simple_format(
-
-"Any entry can be deleted using the API. The only required parameter is the ID (use printAll to look up the ID of the vehicles).
-
-The following query will delete a vehicle with ID of '10':
-
-/deleteCar?id=10
-
-Upon success, the user will be redirected to a json object of all current cars."
-) %>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-viqs{color:#fe0000;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-0lax">Action</th>
+    <th class="tg-0lax">Description</th>
+    <th class="tg-0lax">Parameters</th>
+    <th class="tg-0lax">Example</th>
+  </tr>
+  <tr>
+    <td class="tg-0lax">printAll</td>
+    <td class="tg-0lax">Prints out all cars from the database, can parse certain cars based on parameters</td>
+    <td class="tg-0lax">vin, make, model, year, color, ownerFirstName, ownerLastName</td>
+    <td class="tg-0lax">/printAll<br>/printAll?make=Toyota<br>/printAll?make=Toyota&amp;color=White<br></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">showCar</td>
+    <td class="tg-0lax">Prints one car from the database</td>
+    <td class="tg-viqs">id</td>
+    <td class="tg-0lax">/showCar?id=1</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">createCar</td>
+    <td class="tg-0lax">Creates a car in the database</td>
+    <td class="tg-0lax"><span style="color:rgb(254, 0, 0)">vin, make, model, year, color, ownerFirstName, ownerLastName</span></td>
+    <td class="tg-0lax">/createCar?vin=1GNDT13Z7M2303951&amp;make=Ford&amp;model=Explorer&amp;year=1997&amp;color=Green&amp;ownerFirstName=Jeff&amp;ownerLastName=Adams</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">addRandomCar</td>
+    <td class="tg-0lax">Adds a random car to the database</td>
+    <td class="tg-0lax">none</td>
+    <td class="tg-0lax">/addRandomCar</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">editCar</td>
+    <td class="tg-0lax">Edits an existing car in the database</td>
+    <td class="tg-viqs">id, <span style="color:rgb(0, 0, 0)">vin, make, model, year, color, ownerFirstName, ownerLastName</span></td>
+    <td class="tg-0lax">/editCar?id=1&amp;color=Black</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">deleteCar</td>
+    <td class="tg-0lax">Deletes a car from the database</td>
+    <td class="tg-0lax"><span style="color:rgb(254, 0, 0)">id</span></td>
+    <td class="tg-0lax">/deleteCar?id=1</td>
+  </tr>
+</table>

@@ -1,0 +1,24 @@
+  <table cellpadding="1" cellspacing="1" width="100%" style="border: 2px;" rules="none">
+    <thead>
+    <tr>
+    <tr style="outline: thin solid">
+      <th>Action</th>
+      <th>Token</th>
+      <th>Paramets</th>
+      <th>Date / Time</th>
+      <th colspan="6"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @logs.each do |log| %>
+        <tr>
+        <tr style="outline: thin solid">
+          <td><%= log.action %></td>
+          <td><%= log.token %></td>
+          <td><%= log.parameters %></td>
+          <td><%= log.created_at %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>

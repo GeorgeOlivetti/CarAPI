@@ -111,7 +111,7 @@ class CarController < ApplicationController
        # @car_format = @car.as_json
 
     respond_to do |format|
-        format.html { redirect_to showCar_path(:id => @car.id)}
+        format.html { redirect_to showCar_path(:id => @car.id, :token => params[:token])}
         format.json { head :no_content }
     end
     end

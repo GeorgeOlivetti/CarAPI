@@ -1,9 +1,13 @@
 <h1>Generate Success!</h1>
-
+<br />
 <%= @token.firstName %>
+<br />
 <%= @token.lastName %>
 
-Token = <%= @token.token %>.
+Token = 
+<br />
+<%= @token.token %>
 
+** Do not share this token, treat it like a password. Append this to every API call. **
 
 <%= link_to 'Main Page', root_path %>

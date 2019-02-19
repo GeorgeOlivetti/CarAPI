@@ -194,5 +194,61 @@ class CarController < ApplicationController
     end
     
     def helper
+        
+        @actions = ["printAll", "showCar", "createCar", "addRandomCar", "editCar", "deleteCar"]
+        
+        if(params[:commit] == "Make Query")
+        respond_to do |format|
+            format.html { redirect_to query_path}
+            format.json { head :no_content }
+        end
+        end
+    end
+    
+    def query
+        
+         @actions = ["printAll", "showCar", "createCar", "addRandomCar", "editCar", "deleteCar"]
+        
+        @query = "/"
+        
+        if(params[:action])
+           @action = params[:action]
+           @query << @action
+        end
+        if(params[:id])
+           @id = "id=" << params[:id] << "?"
+           @query << @id
+        end
+        if(params[:vin])
+            @vin = "vin=" << params[:vin] << "?"
+            @query << @vin
+        end
+        if(params[:make])
+           @make = "make=" << params[:make] << "?"
+           @query << @make
+        end
+        if(params[:model])
+           @model = "model=" << params[:model] << "?"
+           @query << @model
+        end
+        if(params[:year])
+           @year = "year=" << params[:year] << "?"
+           @query << @year
+        end
+        if(params[:color])
+            @color = "color=" << params[:color] << "?"
+            @query << @color
+        end
+        if(params[:ownerFirstName])
+            @ownerFirstName = "ownerFirstName=" << params[:ownerFirstName] << "?"
+            @query << @ownerFirstName
+        end
+        if(params[:ownerLastName])
+           @ownerLastName = "ownerLastName=" << params[:ownerLastName] << "?"
+           @query << @ownerLastName
+           
+        end
+        
+        
     end
 end

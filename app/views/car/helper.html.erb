@@ -1,0 +1,39 @@
+<div class="queryHelper-page">
+  <h1>Query Helper</h1>
+
+<%= form_tag("/helper", method: "get") do %>
+  <%= label_tag(:action, "Action:") %>
+<%= select_tag "car[action]", options_for_select(@actions, "car[action]") %>
+  <br />
+  <%= label_tag(:id, "Car ID:") %>
+  <%= text_field_tag(:id) %>
+  <br />
+  <%= label_tag(:vin, "VIN:") %>
+  <%= text_field_tag(:vin) %>
+  <br />
+  <%= label_tag(:make, "Make:") %>
+  <%= text_field_tag(:make) %>
+  <br />
+  <%= label_tag(:model, "Model:") %>
+  <%= text_field_tag(:model) %>
+  <br />
+  <%= label_tag(:year, "Year:") %>
+  <%= number_field_tag(:year) %>
+  <br />
+  <%= label_tag(:color, "Color:") %>
+  <%= text_field_tag(:color) %>
+  <br />
+  <%= label_tag(:ownerFirstName, "Owner First Name:") %>
+  <%= text_field_tag(:ownerFirstName) %>
+  <br />
+  <%= label_tag(:ownerFirstName, "Owner Last Name:") %>
+  <%= text_field_tag(:ownerFirstName) %>
+  <br />
+  
+  <%= submit_tag("Make Query") %>
+<% end %>
+  <br />
+<%= @query  %>
+
+  <%= link_to 'Back', :back %>
+</div>

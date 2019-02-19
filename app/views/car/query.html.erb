@@ -1,65 +1,6 @@
-<%= form_for(@query) do |f| %>
-  <% if @query.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@query.errors.count, "error") %> prohibited this token from being saved:</h2>
+<h1>Query Generated!</h1>
 
-      <ul>
-      <% @query.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-    <div class="field">
-    <%= f.label "API Token" %>
-    <%= f.text_field :token %>
-  </div>
-  
-      <div class="field">
-    <%= f.label "Car ID" %>
-    <%= f.text_field  %>
-  </div>
-  
-        <div class="field">
-    <%= f.label "VIN" %>
-    <%= f.text_field  %>
-  </div>
-  
-        <div class="field">
-    <%= f.label "Make" %>
-    <%= f.text_field  %>
-  </div>
-  
-        <div class="field">
-    <%= f.label "Model" %>
-    <%= f.text_field  %>
-  </div>
-  
-        <div class="field">
-    <%= f.label "Year" %>
-    <%= f.number_field  %>
-  </div>
-  
-          <div class="field">
-    <%= f.label "Color" %>
-    <%= f.text_field  %>
-  </div>
-  
-        <div class="field">
-    <%= f.label "Owner First Name" %>
-    <%= f.text_field  %>
-  </div>
-  
-        <div class="field">
-    <%= f.label "Owner Last Name" %>
-    <%= f.text_field  %>
-  </div>
-  
-  
+<%= @query %>
 
-  <!--<div class="actions btn btn-primary">-->
-    <!--<%= f.submit %>-->
-  <!--</div>-->
-    <button type="submit" class="btn btn-primary">Generate Query</button>
-<% end %>
+  <br />
+<%= link_to 'Back', :back %>

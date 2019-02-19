@@ -25,6 +25,8 @@ get "error", to: "car#error", as: "error"
 
 get "logs", to: "log#show", as: "showLogs"
 
+get "helper", to: "car#helper", as: "helper"
 
+get "query", to: "car#query", as: "query"
 
 end
